@@ -33,7 +33,7 @@ const Login = () => {
     axios.post('https://abonilla01.herokuapp.com/auth/login', data)
       .then(res => {
         localStorage.setItem("user", JSON.stringify(res.data));
-        history.push('/dashboard');
+        history.push('/react-login/dashboard');
         window.location.reload();
       })
       .catch(err => console.log(err))

@@ -30,7 +30,7 @@ const Register = () => {
     axios.post('https://abonilla01.herokuapp.com/auth/register', data)
       .then(res => {
         alert(res.data.message);
-        history.push('/login');
+        history.push('/react-login/login');
       })
       .catch(err => {
         alert(err.response.data.message)

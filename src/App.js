@@ -44,7 +44,7 @@ function App() {
       <Router>
         <Menu administrador={administrador} moderador={moderador} usuario={usuario} currentUser={currentUser} logOut={logOut}/>
         <Switch>
-          <Route exact path="/" component={Inicio} />
+          <Route exact path="/react-login" component={Inicio} />
           <RutaPrivada path="/dashboard" component={Dashboard} />
           <RutaPrivada path="/administrador" component={Administrador} />
           <RutaPrivada path="/moderador" component={Moderador} />

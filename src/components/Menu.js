@@ -8,7 +8,7 @@ const Menu = (props) => {
 
   return (
     <Navbar color="light" expand="md" light>
-      <Link to="/" className="navbar-brand">
+      <Link to="//react-login" className="navbar-brand">
         Sistema
       </Link>
       <button
@@ -26,14 +26,14 @@ const Menu = (props) => {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <Nav className="me-auto" navbar>
           <NavItem>
-            <Link to="/" className="nav-link">
+            <Link to="/react-login" className="nav-link">
               Inicio
             </Link>
           </NavItem>
 
           {currentUser && (
             <NavItem>
-              <Link to="/dashboard" className="nav-link">
+              <Link to="/react-login/dashboard" className="nav-link">
                 Dashboard
               </Link>
             </NavItem>
@@ -41,7 +41,7 @@ const Menu = (props) => {
 
           {administrador && (
             <NavItem>
-              <Link to="/administrador" className="nav-link">
+              <Link to="/react-login/administrador" className="nav-link">
                 Administrador
               </Link>
             </NavItem>
@@ -49,7 +49,7 @@ const Menu = (props) => {
 
           {moderador && (
             <NavItem>
-              <Link to="/moderador" className="nav-link">
+              <Link to="/react-login/moderador" className="nav-link">
                 Moderador
               </Link>
             </NavItem>
@@ -57,7 +57,7 @@ const Menu = (props) => {
 
           {usuario && (
             <NavItem>
-              <Link to="/usuario" className="nav-link">
+              <Link to="/react-login/usuario" className="nav-link">
                 Usuario
               </Link>
             </NavItem>
@@ -67,13 +67,13 @@ const Menu = (props) => {
         {currentUser ? (
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <Link to="/profile" className="nav-link">
+              <Link to="/react-login/profile" className="nav-link">
                 {currentUser.usuario}
               </Link>
             </NavItem>
 
             <NavItem>
-              <a href="/" className="nav-link" onClick={logOut}>
+              <a href="/react-login" className="nav-link" onClick={logOut}>
                 LogOut
               </a>
             </NavItem>
@@ -81,13 +81,13 @@ const Menu = (props) => {
         ) : (
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <Link to="/Login" className="nav-link">
+              <Link to="/react-login/Login" className="nav-link">
                 Login
               </Link>
             </NavItem>
 
             <NavItem>
-              <Link to="/register" className="nav-link">
+              <Link to="/react-login/register" className="nav-link">
                 Registrarse
               </Link>
             </NavItem>
