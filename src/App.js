@@ -45,13 +45,13 @@ function App() {
         <Menu administrador={administrador} moderador={moderador} usuario={usuario} currentUser={currentUser} logOut={logOut}/>
         <Switch>
           <Route exact path="/react-login" component={Inicio} />
-          <RutaPrivada path="/dashboard" component={Dashboard} />
-          <RutaPrivada path="/administrador" component={Administrador} />
-          <RutaPrivada path="/moderador" component={Moderador} />
-          <RutaPrivada path="/usuario" component={Usuarios}/>
-          <RutaPrivada path="/profile" component={Profile} />
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
+          <RutaPrivada path="/react-login/dashboard" component={Dashboard} />
+          <RutaPrivada path="/react-login/administrador" component={Administrador} />
+          <RutaPrivada path="/react-login/moderador" component={Moderador} />
+          <RutaPrivada path="/react-login/usuario" component={Usuarios}/>
+          <RutaPrivada path="/react-login/profile" component={Profile} />
+          <Route path="/react-login/login" component={Login} />
+          <Route path="/react-login/register" component={Register} />
         </Switch>
       </Router>
     </>
