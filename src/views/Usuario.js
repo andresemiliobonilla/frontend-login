@@ -11,7 +11,7 @@ const Usuarios = () => {
     const data = async () => {
       const token = JSON.parse(localStorage.getItem("user"));
       if(!token){
-        return history.push('/react-login/login');
+        return history.push('/login');
       }
       try{
         const {data} = await authService.getUserBoard();
@@ -23,7 +23,7 @@ const Usuarios = () => {
         })
       }
       catch(error){
-        return history.push('/react-login/login');
+        return history.push('/login');
       }
     }
     data();
