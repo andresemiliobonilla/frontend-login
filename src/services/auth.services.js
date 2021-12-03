@@ -1,10 +1,15 @@
 import axios from 'axios';
 
 const token = JSON.parse(localStorage.getItem("user"));
-const urlServer = 'http://localhost:4000';
-// const urlServer = 'https://abonilla01.herokuapp.com';
+// const urlServer = 'http://localhost:4000';
+const urlServer = 'https://abonilla01.herokuapp.com';
 
 class authService {
+
+  registerUser(data)
+  {
+    return axios.post(urlServer + '/auth/register', data);
+  }
 
   loginUser(data)
   {

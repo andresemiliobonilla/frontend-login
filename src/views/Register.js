@@ -6,7 +6,6 @@ import {
   Input,
   Button
 } from 'reactstrap'
-import axios from 'axios'
 import {useHistory, Redirect} from 'react-router-dom'
 import authServices from '../services/auth.services'
 
@@ -41,7 +40,7 @@ const Register = () => {
 
   const formSubmit = (e) => {
     e.preventDefault();
-    axios.post('https://abonilla01.herokuapp.com/auth/register', data)
+    authServices.registerUser()
       .then(res => {
         alert(res.data.message);
         history.push('/login');
