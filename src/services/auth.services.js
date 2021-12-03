@@ -1,31 +1,44 @@
 import axios from 'axios';
 
 const token = JSON.parse(localStorage.getItem("user"));
+const urlServer = 'http://localhost:4000';
+// const urlServer = 'https://abonilla01.herokuapp.com';
 
 class authService {
+
+  loginUser(data)
+  {
+    return axios.post(urlServer + '/auth/login', data);
+  }
+
   getCurrentUser()
   {
     return JSON.parse(localStorage.getItem("user"))
   }
 
+  hayToken()
+  {
+    return localStorage.getItem('user');
+  }
+
   logOut()
   {
-    localStorage.removeItem("user")
+    localStorage.removeItem("user");
   }
 
   getUserBoard()
   {
-    return axios.get('https://abonilla01.herokuapp.com/contenido/usuario', {headers: {"x-access-token": token.miToken}})
+    return axios.get(urlServer + '/contenido/usuario', {headers: {"x-access-token": token.miToken}});
   }
 
   getAdminBoard()
   {
-    return axios.get('https://abonilla01.herokuapp.com/contenido/admin', {headers: {"x-access-token": token.miToken}})
+    return axios.get(urlServer + '/contenido/administrador', {headers: {"x-access-token": token.miToken}});
   }
 
-  getModContent()
+  getModBoard()
   {
-    return axios.get('https://abonilla01.herokuapp.com/contenido/moderador', {headers: {"x-access-token": token.miToken}})
+    return axios.get(urlServer + '/contenido/moderador', {headers: {"x-access-token": token.miToken}});
   }
 }
 

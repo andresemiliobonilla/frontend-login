@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   Form,
   FormGroup,
@@ -6,17 +6,27 @@ import {
   Input,
   Button
 } from 'reactstrap'
-import axios from 'axios'
-import { useHistory } from 'react-router-dom'
-
-
+import { useHistory , Redirect} from 'react-router-dom'
+import authServices from '../services/auth.services'
 
 const Login = () => {
 
   const [data, setData] = useState("");
+  const [redirigir, setRedirigir] = useState(null);
 
   let history = useHistory();
 
+  useEffect(() => {
+    authVerify();
+  }, [])
+  
+  const authVerify = () => {
+    const token = authServices.hayToken();
+    if(token != null)
+    {
+      setRedirigir(true)
+    }
+  }
 
   const inputChange = (e) => {
     const {name, value} = e.target;
@@ -28,20 +38,21 @@ const Login = () => {
 
   const formSubmit = (e) => {
     e.preventDefault();
-
-
-    axios.post('https://abonilla01.herokuapp.com/auth/login', data)
+    authServices.loginUser(data)
       .then(res => {
         localStorage.setItem("user", JSON.stringify(res.data));
         history.push('/dashboard');
         window.location.reload();
       })
       .catch(err => console.log(err))
-
   }
 
   return (
     <>
+    {
+      redirigir ?
+        <Redirect exact to="/dashboard" />
+      :
       <div className="container">
         <Form onSubmit={formSubmit}>
           <FormGroup>
@@ -71,6 +82,8 @@ const Login = () => {
           </Button>
         </Form>
       </div>
+    }
+
     </>
   )
 }

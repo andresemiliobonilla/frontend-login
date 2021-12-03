@@ -1,16 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import authService from '../services/auth.services';
 
-
 const Moderador = () => {
 
   const [content, setContent] = useState({});
   const [errores, setErrores] = useState({});
 
   useEffect(() => {
-
     const data = () => {
-      authService.getModContent()
+      authService.getModBoard()
         .then(res => {
           setContent({
             contenido: res.data.message
@@ -39,4 +37,4 @@ const Moderador = () => {
   )
 }
 
-export default Moderador
+export default Moderador;
